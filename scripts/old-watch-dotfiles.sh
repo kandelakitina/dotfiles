@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTFILES_DIR="$HOME/dotfiles"
+DOTFILES_DIR="$HOME/dotfiles/tostow"
 
 run_stow() {
   for dir in $(find "$DOTFILES_DIR" -maxdepth 1 -mindepth 1 -type d); do
@@ -21,7 +21,7 @@ run_stow() {
     done
 
     # Run stow with the --restow option
-    (cd "$DOTFILES_DIR" && stow --restow "$package")
+    (cd "$DOTFILES_DIR" && stow --restow --adopt -t ~ "$package")
   done
 }
 
