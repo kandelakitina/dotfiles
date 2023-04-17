@@ -1,0 +1,21 @@
+colors:
+  body: none
+  date: YELLOW
+  tags: CYAN
+  title: MAGENTA
+default_hour: 9
+default_minute: 0
+editor: hx
+encrypt: true
+highlight: true
+indent_character: '|'
+journals:
+  default:
+    journal: ~/jrnl/journal.txt
+  work:
+    journal: ~/jrnl/work.txt
+linewrap: 79
+tagsymbols: '#@'
+template: false
+timeformat: '%F %r'
+version: v3.3

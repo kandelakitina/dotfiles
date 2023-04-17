@@ -1,0 +1,52 @@
+# NOTE SETTINGS
+[note]
+
+template = "yaml_tags.md"
+
+# The default title used for new note, if no `--title` flag is provided.
+default-title = "{{id}}-Untitled"
+
+# Template used to generate a note's filename, without extension.
+filename = "{{id}}-{{slug title}}"
+
+# EXTRA SETTINGS
+[extra]
+author = "boticelli"
+
+# MARKDOWN SETTINGS
+[format.markdown]
+hashtags = true
+link-format = "wiki"
+
+# EXTERNAL TOOLS
+[tool]
+
+# Command used to preview a note during interactive fzf mode.
+fzf-preview = "bat -p --color always {-1}"
+
+# COMMAND ALIASES
+[alias]
+
+last = "zk edit --limit 1 --sort modified- $argv"
+ls = "zk list $argv"
+open = "zk edit -i $argv"
+add = 'zk new --title "$argv"'
+recent = "zk edit --sort created- --created-after 'last two weeks' --interactive"
+conf = '$EDITOR "$ZK_NOTEBOOK_DIR/.zk/config.toml"'
+
+# LSP (EDITOR INTEGRATION)
+[lsp]
+
+[lsp.diagnostics]
+# Report titles of wiki-links as hints.
+wiki-title = "hint"
+# Warn for dead links between notes.
+dead-link = "error"
+
+[lsp.completion]
+# Show the note title in the completion pop-up, or fallback on its path if empty.
+note-label = "{{title-or-path}}"
+# Filter out the completion pop-up using the note title or its path.
+note-filter-text = "{{title}} {{path}}"
+# Show the note filename without extension as detail.
+note-detail = "{{filename-stem}}"

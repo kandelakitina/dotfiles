@@ -1,0 +1,17 @@
+# Files
+data.location=~/VAULT/Tasks
+
+# Contexts
+context.work.read=+@office
+context.work.write=+@office
+
+context.coding.read=+@home
+context.coding.write=+@home
+
+# Reporting
+report.in.columns           = id,description
+report.in.description       = List of in items
+report.in.filter            = status:pending +in limit:page
+report.in.labels            = ID,Description
+
+news.version=2.6.0

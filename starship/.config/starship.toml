@@ -1,0 +1,5 @@
+[custom.task_count_pending]
+command = "task count rc.gc=off rc.verbose=nothing tags:in status:pending"
+when = "test $(task count rc.gc=off rc.verbose=nothing tags:in status:pending) -gt 0"
+symbol = "📌"
+description = "Count of inbox Taskwarrior tasks"

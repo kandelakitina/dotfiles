@@ -1,0 +1,38 @@
+# shell aliases
+
+# list files
+alias ll='ls -alF' # all for all, l for details, F for \ symbols
+alias la='ls -AF'  #
+alias l='ls -CF'   #
+
+# source .zshrc
+alias s='source ~/.zshrc'
+
+# manipulating files
+alias mkdir='mkdir -p'
+
+# creating directories and ccing into them
+function folder {
+  mkdir -p $1
+  cd $1
+}
+
+# soft
+alias vim='nvim'
+alias lg='lazygit'
+
+# clear with c
+alias c=clear
+
+# clean Nvim Cache
+alias nvim-clean-cache='rm ~/.local/share/nvim/packer_compiled.lua && rm -rf ~/.cache/nvim && rm -rf ~/.local/site/nvim && rm -rf ~/.local/share/nvim && rm -rf ~/.cache/nvim'
+
+# alacritty-themes switcher
+alias at='alacritty-themes'
+
+# fff file browser
+# Run 'fff' with 'f' or whatever you decide to name the function.
+f() {
+    fff "$@"
+    cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
+}
