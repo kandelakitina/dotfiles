@@ -37,4 +37,8 @@ font:
 theme: iTerm-Default
 
 shell:
-  program: /home/boticelli/.nix-profile/bin/fish -c "tmux new-session -A -s main || tmux attach-session -t main"
+  program: fish
+  args:
+    - -l
+    - -c
+    - "tmux attach || tmux"
