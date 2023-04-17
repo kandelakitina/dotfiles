@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTFILES_DIR="$HOME/.dotfiles"
+DOTFILES_DIR="$HOME/dotfiles"
 
 run_stow() {
   for dir in $(find "$DOTFILES_DIR" -maxdepth 1 -mindepth 1 -type d); do
