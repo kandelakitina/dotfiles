@@ -2,11 +2,11 @@
 starship init fish | source
 
 # Auto-stow dotfiles script
-if not pgrep -f "watch_dotfiles.sh" >/dev/null
-    nohup ~/.dotfiles/scripts/watch_dotfiles.sh >/dev/null 2>&1 &
-    set -l pid (pgrep -f "watch_dotfiles.sh")
-    disown $pid
-end
+# if not pgrep -f "watch_dotfiles.sh" >/dev/null
+    # nohup ~/.dotfiles/scripts/watch_dotfiles.sh >/dev/null 2>&1 &
+    # set -l pid (pgrep -f "watch_dotfiles.sh")
+    # disown $pid
+# end
 
 # fzf 
 function fish_user_key_bindings
