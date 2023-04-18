@@ -26,11 +26,6 @@ fi
 nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
 nix-channel --update
 
-# Symlink desktop folder to make Gnome see nix apps
-mkdir -p ~/.local/share
-ln -s ~/.nix-profile/share/applications ~/.local/share/applications
-ln -s ~/.nix-profile/share/icons ~/.local/share/icons
-
 # =================
 # Nix packages
 # =================
@@ -118,6 +113,39 @@ printf "%s\n" "${!packages[@]}" | sort | while read -r pkg_name; do
   # Update the color index, cycling through the rainbow colors
   color_index=$(( (color_index + 1) % ${#rainbow_colors[@]} ))
 done
+
+# Symlink Nix desktop folder to make Gnome see nix apps
+# mkdir -p ~/.local/share
+# ln -s ~/.nix-profile/share/applications ~/.local/share/applications
+# ln -s ~/.nix-profile/share/icons ~/.local/share/icons
+
+applications_path="$HOME/.local/share/applications"
+icons_path="$HOME/.local/share/icons"
+
+# Check if the applications symlink exists
+if [ -L "$applications_path" ]; then
+    echo -e "\nNix packages' desktop files are already symlinked to system"
+else
+    # Remove the directory if it exists and is not a symlink
+    if [ -d "$applications_path" ]; then
+        rm -r "$applications_path"
+    fi
+    ln -s ~/.nix-profile/share/applications "$applications_path"
+    echo -e "\nSymlinked Nix packages' desktop files to system applications"
+fi
+
+# Check if the icons symlink exists
+if [ -L "$icons_path" ]; then
+    echo -e "\nNix packages' icons are already symlinked to system"
+else
+    # Remove the directory if it exists and is not a symlink
+    if [ -d "$icons_path" ]; then
+        rm -r "$icons_path"
+    fi
+    ln -s ~/.nix-profile/share/icons "$icons_path"
+    echo -e "\nSymlinked Nix packages' icons to system icons"
+fi
+
 
 # =================
 # Alacritty

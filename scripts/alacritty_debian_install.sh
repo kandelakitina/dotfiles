@@ -11,10 +11,10 @@ if ! command -v alacritty &> /dev/null; then
 
   # Check if cargo is installed, and install it with Nix if not
   if ! command -v cargo &> /dev/null; then
-    echo "Installing cargo using Nix package manager..."
+    echo -e "\nInstalling cargo using Nix package manager..."
     nix-env -iA nixpkgs.cargo
   else
-    echo "Cargo is already installed."
+    echo -e "\nCargo is already installed."
   fi
 
   # Build Alacritty
@@ -39,7 +39,7 @@ if ! command -v alacritty &> /dev/null; then
   # Clean up temporary folder
   rm -rf /tmp/alacritty
 
-  echo "Alacritty installation completed."
+  echo -e "\nAlacritty installation completed."
 else
-  echo "Alacritty is already installed."
+  echo -e "\nAlacritty is already installed."
 fi
