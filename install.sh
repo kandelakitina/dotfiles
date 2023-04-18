@@ -16,17 +16,20 @@ if ! command -v nix &> /dev/null; then
 
   # Run nix daemon
   bash /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
-  . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
-  
-
+  bash /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
 
 else
   echo -e "\nNix package manager is already installed."
 fi
 
-  # Force add nixpkgs channel to avoid errors
-  nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
-  nix-channel --update
+# Force add nixpkgs channel to avoid errors
+nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
+nix-channel --update
+
+# Symlink desktop folder to make Gnome see nix apps
+mkdir -p ~/.local/share
+ln -s ~/.nix-profile/share/applications ~/.local/share/applications
+ln -s ~/.nix-profile/share/icons ~/.local/share/icons
 
 # =================
 # Nix packages
@@ -55,7 +58,7 @@ packages=(
   [fish]=fish
   [fzf]=fzf
   [fff]=fff
-  [gcc]=gcc-wrapper
+  [gcc-wrapper]=gcc_multi
   [gh]=gh
   [git]=git
   [entr]=entr
@@ -120,7 +123,7 @@ done
 # Alacritty
 # =================
 
-bash ~/.dotfiles/scripts/alacritty_debian_install.sh
+bash ~/dotfiles/scripts/alacritty_debian_install.sh
 
 # =================
 # Stow
