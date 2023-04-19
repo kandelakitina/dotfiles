@@ -169,8 +169,11 @@ alias tmux-command 'tmux (tmux list-commands | awk \'{print $1}\' | fzf)'
 
 # Git auto syncing
 # VAULT sync every 5 mins
-nohup ~/dotfiles/scripts/git-sync-VAULT-every-5mins.sh >/dev/null 2>&1 &
-# fish -c "bash ~/dotfiles/scripts/git-sync-VAULT-every-5mins.sh &"
+if not pgrep -f "git-sync-VAULT-every-5mins.sh" >/dev/null
+    nohup ~/dotfiles/scripts/git-sync-VAULT-every-5mins.sh >/dev/null 2>&1 &
+    set -l pid (pgrep -f "git-sync-VAULT-every-5mins.sh")
+    disown $pid
+end
 
 # Final toast
 set fish_greeting (echo -e "\e[38;5;196m┏(-_-)┛\e[38;5;27m┗(-_-)┓\e[38;5;226m┗(-_-)┛\e[38;5;118m┏(-_-)┓\e[0m")
