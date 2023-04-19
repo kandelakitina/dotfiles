@@ -19,9 +19,17 @@ esc = ["collapse_selection", "keep_primary_selection"]
 [editor]
 true-color = true
 line-number = "relative"
-bufferline = "always"
+bufferline = "multiple"
+color-modes = true
 
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
 select = "underline"
+
+[editor.soft-wrap]
+enable = true
+
+[editor.statusline]
+left = ["mode", "spinner", "version-control"]
+center = ["file-name"]
