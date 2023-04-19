@@ -1,12 +1,6 @@
 # starship prompt
 starship init fish | source
 
-# Auto-stow dotfiles script
-# if not pgrep -f "watch_dotfiles.sh" >/dev/null
-    # nohup ~/.dotfiles/scripts/watch_dotfiles.sh >/dev/null 2>&1 &
-    # set -l pid (pgrep -f "watch_dotfiles.sh")
-    # disown $pid
-# end
 
 # fzf 
 function fish_user_key_bindings
@@ -155,6 +149,22 @@ fish_add_path $HOME/.tmux/plugins/t-smart-tmux-session-manager/bin
 fish_add_path $HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin
 
 alias tmux-command 'tmux (tmux list-commands | awk \'{print $1}\' | fzf)'
+
+## =======
+## Scripts
+## =======
+
+# Auto-stow dotfiles script
+# if not pgrep -f "watch_dotfiles.sh" >/dev/null
+    # nohup ~/.dotfiles/scripts/watch_dotfiles.sh >/dev/null 2>&1 &
+    # set -l pid (pgrep -f "watch_dotfiles.sh")
+    # disown $pid
+# end
+
+# Git auto syncing
+# VAULT sync every 5 mins
+nohup ~/dotfiles/scripts/git-sync-VAULT-every-5mins.sh >/dev/null 2>&1 &
+# fish -c "bash ~/dotfiles/scripts/git-sync-VAULT-every-5mins.sh &"
 
 # Final toast
 set fish_greeting (echo -e "\e[38;5;196m┏(-_-)┛\e[38;5;27m┗(-_-)┓\e[38;5;226m┗(-_-)┛\e[38;5;118m┏(-_-)┓\e[0m")
