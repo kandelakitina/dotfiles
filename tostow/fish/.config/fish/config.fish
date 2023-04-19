@@ -46,6 +46,12 @@ function folder
     cd $argv[1]
 end
 
+# Copy file's absolute path to clipboard
+function cfpath
+    realpath $argv[1] | xclip -sel clip
+    echo "Copied the path of" $argv[1] "to the clipboard."
+end
+
 # alias rm='trash'
 # function restore
     # trash list | fzf --multi | awk '{$1=$1;print}' | rev | cut -d ' ' -f1 | rev | xargs trash restore --match=exact --force
