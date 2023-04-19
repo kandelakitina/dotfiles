@@ -2,9 +2,10 @@
 data.location=~/VAULT/Tasks
 
 # Inthe.AM sync stuff
-taskd.certificate=~/dotfiles/random/taskwarrior_certificates/private.certificate.pem
-taskd.key=~/dotfiles/random/taskwarrior_certificates/private.key.pem
-taskd.ca=~/dotfiles/random/taskwarrior_certificates/ca.cert.pem
+# download certificates from their site
+taskd.certificate=~/taskwarrior_certificates/private.certificate.pem
+taskd.key=~/taskwarrior_certificates/private.key.pem
+taskd.ca=~/taskwarrior_certificates/ca.cert.pem
 taskd.server=inthe.am:53589
 taskd.credentials=inthe_am/kandelakitina/600db732-2a95-43a0-833e-61509e481778
 taskd.trust=strict
