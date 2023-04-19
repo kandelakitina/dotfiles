@@ -1,7 +1,6 @@
 # starship prompt
 starship init fish | source
 
-
 # fzf 
 function fish_user_key_bindings
   if command -s fzf-share >/dev/null
@@ -45,6 +44,9 @@ function folder
     mkdir -p $argv[1]
     cd $argv[1]
 end
+
+# Restow dotfiles
+alias sdf='bash ~/dotfiles/scripts/mass_stow.sh'
 
 # Copy file's absolute path to clipboard
 function cfpath
