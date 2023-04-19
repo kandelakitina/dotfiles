@@ -1,5 +1,5 @@
-# theme = "dracula_at_night"
-theme = "ayu_dark"
+theme = "dracula_at_night"
+# theme = "ayu_dark"
 
 [keys.normal]
 # Move lines up and down
@@ -25,4 +25,3 @@ bufferline = "always"
 insert = "bar"
 normal = "block"
 select = "underline"
-
