@@ -1,5 +1,5 @@
-# theme = "dracula_at_night"
-theme = "ayu_dark"
+theme = "dracula_at_night"
+# theme = "ayu_dark"
 
 [keys.normal]
 # Move lines up and down
@@ -13,7 +13,11 @@ A-k = ["open_above", "move_line_down", "normal_mode"]
 # Delete to the end of the line
 D = ["kill_to_line_end"]
 
+[editor]
+line-number = "relative"
+
 [editor.cursor-shape]
 insert = "bar"
 normal = "block"
 select = "underline"
+
