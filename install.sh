@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# TODO
-# Make stow remove files in the installation path before stowing to avoid conflicts
-
 # =================
 # Nix Package manager
 # =================
@@ -51,6 +48,7 @@ color_index=0
 declare -A packages
 
 packages=(
+  [alacritty]=alacritty
   [bat]=bat
   [direnv]=direnv
   [fd]=fd
@@ -150,6 +148,10 @@ else
     echo -e "\nSymlinked Nix packages' icons to system icons"
 fi
 
+# NixGL
+nix-channel --add https://github.com/guibou/nixGL/archive/main.tar.gz nixgl && nix-channel --update
+# nix-env -iA nixgl.auto.nixGLDefault   # or replace `nixGLDefault` with your desired wrapper
+nix-env -iA nixgl.nixGLIntel
 
 # =================
 # Alacritty

@@ -9,9 +9,9 @@ if pgrep -x "alacritty" > /dev/null; then
   if [ -n "$ALACRITTY_WID" ]; then
     xdotool windowactivate "$ALACRITTY_WID"
   else
-    alacritty &
+    nixGLIntel alacritty &
   fi
 else
   # Start a new Alacritty instance if not running
-  alacritty &
+  nixGLIntel alacritty &
 fi
