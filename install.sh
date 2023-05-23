@@ -226,12 +226,12 @@ fi
 font_directory="$HOME/.local/share/fonts"
 
 # Ubuntu Regular
-font_file_mono="UbuntuNerdFont-Regular.ttf"
-font_url_mono="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Ubuntu/Regular/UbuntuNerdFont-Regular.ttf"
+font_file_mono="UbuntuMonoNerdFont-Regular.ttf"
+font_url_mono="https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/UbuntuMono/Regular/UbuntuMonoNerdFont-Regular.ttf"
 
 # Ubuntu Nerd Font
-font_file="UbuntuMonoNerdFont-Regular.ttf"
-font_url="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/UbuntuMono/Regular/UbuntuMonoNerdFont-Regular.ttf"
+font_file="UbuntuNerdFont-Regular.ttf"
+font_url="https://raw.githubusercontent.com/ryanoasis/nerd-fonts/master/patched-fonts/Ubuntu/Regular/UbuntuNerdFont-Regular.ttf"
 
 # Download and install font function
 download_and_install_font() {
