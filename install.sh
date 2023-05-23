@@ -3,7 +3,6 @@
 # TODO
 # Make stow remove files in the installation path before stowing to avoid conflicts
 
-
 # =================
 # Nix Package manager
 # =================
@@ -25,6 +24,11 @@ fi
 # Force add nixpkgs channel to avoid errors
 nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
 nix-channel --update
+
+# Stow things upfront
+echo "Stowing config files"
+nix-env -iA nixpkgs.stow
+bash /home/boticelli/dotfiles/scripts/mass_stow.sh
 
 # =================
 # Nix packages
@@ -65,7 +69,7 @@ packages=(
   [lazygit]=lazygit
   [neovim]=neovim
   [nodejs]=nodejs
-  
+
   # LSPs
   [bash-language-server]=nodePackages.bash-language-server
   [marksman]=marksman
@@ -75,7 +79,7 @@ packages=(
   # [python3]=python311
   # [python3.11-pip]=python311Packages.pip
   # [python3.11-python-lsp-server]=python311Packages.python-lsp-server
-  
+
   [ripgrep]=ripgrep
   [starship]=starship
   [stow]=stow
@@ -151,7 +155,7 @@ fi
 # Alacritty
 # =================
 
-bash ~/dotfiles/scripts/alacritty_debian_install.sh
+# bash ~/dotfiles/scripts/alacritty_debian_install.sh
 
 # =================
 # Stow
@@ -159,8 +163,8 @@ bash ~/dotfiles/scripts/alacritty_debian_install.sh
 
 # This is moved to config.fish
 # Run script that watches and auto-stows every folder in .dotfiles/ 
-echo -e "\nRunning script to automatically stow config files"
-nohup bash ~/.dotfiles/scripts/watch_dotfiles.sh &>/dev/null &
+# echo -e "\nRunning script to automatically stow config files"
+# nohup bash ~/.dotfiles/scripts/watch_dotfiles.sh &>/dev/null &
 
 # stow git
 # stow nvim
@@ -221,13 +225,13 @@ fi
 
 font_directory="$HOME/.local/share/fonts"
 
-# Ubuntu Mono Nerd Font
-font_file_mono="Ubuntu Mono Nerd Font Complete.ttf"
-font_url_mono="https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/UbuntuMono/Regular/complete/Ubuntu%20Mono%20Nerd%20Font%20Complete.ttf"
+# Ubuntu Regular
+font_file_mono="UbuntuNerdFont-Regular.ttf"
+font_url_mono="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Ubuntu/Regular/UbuntuNerdFont-Regular.ttf"
 
 # Ubuntu Nerd Font
-font_file="Ubuntu Nerd Font Complete.ttf"
-font_url="https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/Ubuntu/Regular/complete/Ubuntu%20Nerd%20Font%20Complete.ttf"
+font_file="UbuntuMonoNerdFont-Regular.ttf"
+font_url="https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/UbuntuMono/Regular/UbuntuMonoNerdFont-Regular.ttf"
 
 # Download and install font function
 download_and_install_font() {
