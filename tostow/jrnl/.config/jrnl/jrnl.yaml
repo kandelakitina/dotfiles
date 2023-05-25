@@ -11,9 +11,9 @@ highlight: true
 indent_character: '|'
 journals:
   default:
-    journal: ~/jrnl/journal.txt
+    journal: ~/VAULT/jrnl/journal.txt
   work:
-    journal: ~/jrnl/work.txt
+    journal: ~/VAULT/jrnl/work.txt
 linewrap: 79
 tagsymbols: '#@'
 template: false
