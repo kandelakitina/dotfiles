@@ -117,6 +117,7 @@ zoxide init fish | source
 
 # zk
 set -gx ZK_NOTEBOOK_DIR ~/VAULT
+alias zke='zk edit -i'
 
 # taskwarrior
 alias in='task add +in'
