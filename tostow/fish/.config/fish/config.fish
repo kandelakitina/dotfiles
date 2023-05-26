@@ -177,5 +177,8 @@ if not pgrep -f "git-sync-VAULT-every-5mins.sh" >/dev/null
     disown $pid
 end
 
+# QT theme patcher variable (for goldendict)
+set -x QT_QPA_PLATFORMTHEME qt5ct
+
 # Final toast
 set fish_greeting (echo -e "\e[38;5;196m┏(-_-)┛\e[38;5;27m┗(-_-)┓\e[38;5;226m┗(-_-)┛\e[38;5;118m┏(-_-)┓\e[0m")
