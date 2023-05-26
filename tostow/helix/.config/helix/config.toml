@@ -16,6 +16,17 @@ D = ["kill_to_line_end"]
 # Esc to do many things
 esc = ["collapse_selection", "keep_primary_selection"]
 
+# Move some Alt Shift bindings to Ctrl Shift to prevent conflicts with layout switching
+"C-(" = ["rotate_selection_contents_backward"]
+"C-)" = ["rotate_selection_contents_forward"]
+C-U = ["later"]
+"C-|" = ["shell_pipe_to"]
+"C-!" = ["shell_append_output"]
+"C-_" = ["merge_consecutive_selections"]
+V = ["copy_selection_on_prev_line"]
+A-m = ["join_selections_space"]
+A-r = ["remove_selections"]
+
 [editor]
 true-color = true
 line-number = "relative"
