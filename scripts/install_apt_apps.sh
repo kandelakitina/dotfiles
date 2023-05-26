@@ -1,13 +1,33 @@
 #!/bin/bash
 
-# Check if Goldendict is installed
-if ! command -v goldendict &> /dev/null; then
-    echo "Goldendict is not installed. Installing..."
-    sudo apt-get update
-    sudo apt-get install -y goldendict
-else
-    echo "Goldendict is already installed."
-fi
+# Simple APT INSTALL aps
+# ======================
+
+# List of applications to install
+apps=(
+    goldendict
+    unzip
+    qt5ct # qt5 theme patcher (for goldendict)
+    # Add more applications here
+)
+
+# Iterate over the list of applications
+for app in "${apps[@]}"; do
+    # Check if the application is already installed
+    if ! command -v "$app" &> /dev/null; then
+        echo "$app is not installed. Installing..."
+        sudo apt-get update
+        sudo apt-get install -y "$app"
+    else
+        echo "$app is already installed."
+    fi
+done
+
+# Manually installed apps
+# =======================
+
+# Anki
+# ####
 
 # Check if Anki is installed
 if ! command -v anki &> /dev/null; then
