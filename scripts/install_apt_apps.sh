@@ -60,3 +60,35 @@ if ! command -v anki &> /dev/null; then
 else
     echo "Anki is already installed."
 fi
+
+# Obsidian
+# ########
+
+# Download and install Obsidian
+if ! command -v obsidian &> /dev/null; then
+    echo "Obsidian is not installed. Installing..."
+    
+    # Set the download URL and file name
+    download_url="https://github.com/obsidianmd/obsidian-releases/releases/download/v1.3.4/obsidian_1.3.4_amd64.deb"
+    download_file="obsidian_1.3.4_amd64.deb"
+    
+    # Set the download directory
+    download_dir="$HOME/Downloads"
+    
+    # Navigate to the download directory
+    cd "$download_dir"
+    
+    # Download Obsidian
+    wget "$download_url"
+    
+    # Install Obsidian
+    sudo dpkg -i "$download_file"
+    
+    # Install any missing dependencies
+    sudo apt-get -f install -y
+    
+    # Clean up downloaded files
+    rm "$download_file"
+else
+    echo "Obsidian is already installed."
+fi
