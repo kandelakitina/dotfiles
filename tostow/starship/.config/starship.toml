@@ -1,14 +1,14 @@
-[custom.task_count_pending]
-command = "bash $HOME/dotfiles/scripts/todo_inbox_counter.sh"
-when = "test $(bash $HOME/dotfiles/scripts/todo_inbox_counter.sh) -gt 0"
-symbol = "📌"
-description = "Count of inbox tasks"
+# [custom.task_count_pending]
+# command = "bash $HOME/dotfiles/scripts/todo_inbox_counter.sh"
+# when = "test $(bash $HOME/dotfiles/scripts/todo_inbox_counter.sh) -gt 0"
+# symbol = "📌"
+# description = "Count of inbox tasks"
 
-[custom.task_count_urgent]
-command = "bash $HOME/dotfiles/scripts/todo_urgent_counter.sh"
-when = "test $(bash $HOME/dotfiles/scripts/todo_urgent_counter.sh) -gt 0"
-symbol = "⚡️"
-description = "Count of urgent tasks"
+# [custom.task_count_urgent]
+# command = "bash $HOME/dotfiles/scripts/todo_urgent_counter.sh"
+# when = "test $(bash $HOME/dotfiles/scripts/todo_urgent_counter.sh) -gt 0"
+# symbol = "⚡️"
+# description = "Count of urgent tasks"
 
 # [custom.task_count_pending]
 # command = "task count rc.gc=off rc.verbose=nothing tags:in status:pending"
