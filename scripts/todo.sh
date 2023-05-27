@@ -1,6 +1,6 @@
 #!/bin/bash
 
-todo_file="todo.xit"
+todo_file="$HOME/VAULT/TODOs/todo.xit"
 inbox_section="Inbox"
 
 if [ $# -eq 0 ]; then
