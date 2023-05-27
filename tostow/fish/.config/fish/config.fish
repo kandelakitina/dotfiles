@@ -48,6 +48,10 @@ end
 # Restow dotfiles
 alias sdf='bash ~/dotfiles/scripts/mass_stow.sh'
 
+# add inbox items to todo.xit
+alias todo='bash ~/dotfiles/scripts/todo.sh'
+alias etodo '$EDITOR $HOME/VAULT/TODOs/todo.xit'
+
 # Copy file's absolute path to clipboard
 function cfpath
     realpath $argv[1] | xclip -sel clip
