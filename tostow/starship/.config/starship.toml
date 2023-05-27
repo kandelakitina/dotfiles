@@ -6,8 +6,14 @@
 
 # starship.toml
 
+# [custom.task_count_pending]
+# command = "python3 $HOME/dotfiles/scripts/python_todo_counter.py"
+# when = "test $(python3 $HOME/dotfiles/scripts/python_todo_counter.py) -gt 0"
+# symbol = "📌"
+# description = "Count of inbox tasks"
+
 [custom.task_count_pending]
-command = "python3 $HOME/dotfiles/scripts/python_todo_counter.py"
-when = "test $(python3 $HOME/dotfiles/scripts/python_todo_counter.py) -gt 0"
+command = "bash $HOME/dotfiles/scripts/todo_inbox_counter.sh"
+when = "test $(bash $HOME/dotfiles/scripts/todo_inbox_counter.sh) -gt 0"
 symbol = "📌"
 description = "Count of inbox tasks"
