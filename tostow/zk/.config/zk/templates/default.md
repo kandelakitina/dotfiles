@@ -4,7 +4,7 @@ tags: []
 date: "{{format-date now}}"
 ---
 
-TARGET DECK: 
+TARGET DECK: {{title}} 
 
 ## TOC
 ```toc
