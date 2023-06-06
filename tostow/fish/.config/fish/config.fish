@@ -1,6 +1,9 @@
 # starship prompt
 starship init fish | source
 
+# fix locale
+set -x LOCALE_ARCHIVE /usr/lib/locale/locale-archive
+
 # fzf 
 function fish_user_key_bindings
   if command -s fzf-share >/dev/null
@@ -125,6 +128,7 @@ set -gx ZK_NOTEBOOK_DIR ~/VAULT
 alias zke='zk edit -i'
 
 # taskwarrior
+# ===========
 alias in='task add +in'
 alias tt='taskwarrior-tui'
 
@@ -154,7 +158,11 @@ end
 
 alias toread="read_and_review"
 
+# QT theme patcher variable (for goldendict)
+set -x QT_QPA_PLATFORMTHEME qt5ct
+
 # tmux t plugin
+# =============
 
 # ~/.tmux/plugins
 fish_add_path $HOME/.tmux/plugins/t-smart-tmux-session-manager/bin
@@ -163,6 +171,7 @@ fish_add_path $HOME/.tmux/plugins/t-smart-tmux-session-manager/bin
 fish_add_path $HOME/.config/tmux/plugins/t-smart-tmux-session-manager/bin
 
 alias tmux-command 'tmux (tmux list-commands | awk \'{print $1}\' | fzf)'
+
 
 ## =======
 ## Scripts
@@ -183,11 +192,6 @@ if not pgrep -f "git-sync-VAULT-every-5mins.sh" >/dev/null
     disown $pid
 end
 
-# QT theme patcher variable (for goldendict)
-set -x QT_QPA_PLATFORMTHEME qt5ct
-
-# Final toast
-set fish_greeting (echo -e "\e[38;5;196m┏(-_-)┛\e[38;5;27m┗(-_-)┓\e[38;5;226m┗(-_-)┛\e[38;5;118m┏(-_-)┓\e[0m")
 
 # # CONDA (Python virtual env)
 # # >>> conda initialize >>>
@@ -197,3 +201,5 @@ set fish_greeting (echo -e "\e[38;5;196m┏(-_-)┛\e[38;5;27m┗(-_-)┓\e[38;5
 # end
 # # <<< conda initialize <<<
 
+# Final toast
+set fish_greeting (echo -e "\e[38;5;196m┏(-_-)┛\e[38;5;27m┗(-_-)┓\e[38;5;226m┗(-_-)┛\e[38;5;118m┏(-_-)┓\e[0m")
