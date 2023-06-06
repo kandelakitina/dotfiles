@@ -188,3 +188,12 @@ set -x QT_QPA_PLATFORMTHEME qt5ct
 
 # Final toast
 set fish_greeting (echo -e "\e[38;5;196m┏(-_-)┛\e[38;5;27m┗(-_-)┓\e[38;5;226m┗(-_-)┛\e[38;5;118m┏(-_-)┓\e[0m")
+
+# # CONDA (Python virtual env)
+# # >>> conda initialize >>>
+# # !! Contents within this block are managed by 'conda init' !!
+# if test -f /home/boticelli/anaconda3/bin/conda
+#     eval /home/boticelli/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+# end
+# # <<< conda initialize <<<
+
