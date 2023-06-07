@@ -1,6 +1,11 @@
 theme = "dracula_at_night"
 # theme = "ayu_dark"
 
+[keys.insert]
+"C-a" = ["goto_line_start"]
+"C-e" = ["goto_line_end_newline"]
+
+
 [keys.normal]
 # Move lines up and down
 "C-A-j" = ["extend_to_line_bounds", "delete_selection", "paste_after"]
