@@ -18,6 +18,12 @@ A-k = ["open_above", "move_line_down", "normal_mode"]
 # Delete to the end of the line
 D = ["kill_to_line_end"]
 
+# Change delete behavior
+d = ["delete_selection_noyank"]
+A-d = ["delete_selection"]
+c = ["change_selection_noyank"]
+A-c = ["change_selection"]
+
 # Esc to do many things
 esc = ["collapse_selection", "keep_primary_selection"]
 
