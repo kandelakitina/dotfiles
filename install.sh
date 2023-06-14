@@ -22,9 +22,21 @@ fi
 nix-channel --add https://nixos.org/channels/nixpkgs-unstable nixpkgs
 nix-channel --update
 
-# Stow things upfront
+# =================
+# Stow
+# =================
+
+# Check if stow is already installed
+if ! command -v stow &>/dev/null; then
+    echo "Installing stow"
+    nix-env -iA nixpkgs.stow
+else
+    echo "Stow is already installed"
+fi
+
+# Stow config files
+
 echo "Stowing config files"
-nix-env -iA nixpkgs.stow
 bash /home/boticelli/dotfiles/scripts/mass_stow.sh
 
 # =================
@@ -68,7 +80,8 @@ packages=(
   [neovim]=neovim
   [nodejs]=nodejs
 
-  # LSPs
+  # LSPs and linters
+  [deno]=deno
   [bash-language-server]=nodePackages.bash-language-server
   [marksman]=marksman
   [yaml-language-server]=nodePackages.yaml-language-server
@@ -148,31 +161,20 @@ else
     echo -e "\nSymlinked Nix packages' icons to system icons"
 fi
 
-# NixGL
+# NixGL Video Driver (for alacritty)
+####################################
+
 nix-channel --add https://github.com/guibou/nixGL/archive/main.tar.gz nixgl && nix-channel --update
+
+# Check if nixGLIntel is already installed
+if ! nix-env -q nixGLIntel &>/dev/null; then
+    echo "Installing nixGLIntel"
+    nix-env -iA nixgl.nixGLIntel
+else
+    echo "nixGLIntel is already installed"
+fi
+
 # nix-env -iA nixgl.auto.nixGLDefault   # or replace `nixGLDefault` with your desired wrapper
-nix-env -iA nixgl.nixGLIntel
-
-# =================
-# Alacritty
-# =================
-
-# bash ~/dotfiles/scripts/alacritty_debian_install.sh
-
-# =================
-# Stow
-# =================
-
-# This is moved to config.fish
-# Run script that watches and auto-stows every folder in .dotfiles/ 
-# echo -e "\nRunning script to automatically stow config files"
-# nohup bash ~/.dotfiles/scripts/watch_dotfiles.sh &>/dev/null &
-
-# stow git
-# stow nvim
-# stow helix
-# stow alacritty
-
 
 # =================
 # Fish
@@ -259,7 +261,6 @@ download_and_install_font() {
 # Download and install both fonts
 download_and_install_font "$font_file_mono" "$font_url_mono"
 download_and_install_font "$font_file" "$font_url"
-
 
 # =================
 # NPM

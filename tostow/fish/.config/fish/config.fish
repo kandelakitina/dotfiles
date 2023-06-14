@@ -193,13 +193,13 @@ if not pgrep -f "git-sync-VAULT-every-5mins.sh" >/dev/null
 end
 
 
-# # CONDA (Python virtual env)
-# # >>> conda initialize >>>
-# # !! Contents within this block are managed by 'conda init' !!
-# if test -f /home/boticelli/anaconda3/bin/conda
-#     eval /home/boticelli/anaconda3/bin/conda "shell.fish" "hook" $argv | source
-# end
-# # <<< conda initialize <<<
+# CONDA (Python virtual env)
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+if test -f /home/boticelli/anaconda3/bin/conda
+    eval /home/boticelli/anaconda3/bin/conda "shell.fish" "hook" $argv | source
+end
+# <<< conda initialize <<<
 
 # Final toast
 set fish_greeting (echo -e "\e[38;5;196m┏(-_-)┛\e[38;5;27m┗(-_-)┓\e[38;5;226m┗(-_-)┛\e[38;5;118m┏(-_-)┓\e[0m")
