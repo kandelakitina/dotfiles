@@ -70,6 +70,7 @@ packages=(
   [gcc-wrapper]=gcc_multi
   [gh]=gh
   [git]=git
+  [jq]=jq
   [entr]=entr
   [exa]=exa
   [helix]=helix

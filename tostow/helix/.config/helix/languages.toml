@@ -10,7 +10,7 @@ formatter = { command = 'deno', args = ["fmt", "-", "--ext", "json" ] }
 [[language]]
 name = "markdown"
 formatter = { command = 'deno', args = ["fmt", "-", "--ext", "md" ] }
-auto-format = true
+auto-format = false
 
 [[language]]
 name = "typescript"
