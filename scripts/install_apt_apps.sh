@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Simple APT INSTALL aps
+# Simple DNF INSTALL aps
 # ======================
 
 # List of applications to install
@@ -16,8 +16,8 @@ for app in "${apps[@]}"; do
     # Check if the application is already installed
     if ! command -v "$app" &> /dev/null; then
         echo "$app is not installed. Installing..."
-        sudo apt-get update
-        sudo apt-get install -y "$app"
+        sudo dnf update
+        sudo dnf install -y "$app"
     else
         echo "$app is already installed."
     fi
@@ -85,7 +85,8 @@ if ! command -v obsidian &> /dev/null; then
     sudo dpkg -i "$download_file"
     
     # Install any missing dependencies
-    sudo apt-get -f install -y
+    sudo dnf check
+    sudo dnf install -y
     
     # Clean up downloaded files
     rm "$download_file"

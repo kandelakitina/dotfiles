@@ -6,8 +6,8 @@ if ! command -v alacritty &> /dev/null; then
   git clone https://github.com/alacritty/alacritty.git /tmp/alacritty
 
   # Install dependencies
-  sudo apt update
-  sudo apt install -y cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
+  sudo dnf check-update
+  sudo dnf install -y cmake pkg-config libfreetype6-dev libfontconfig1-dev libxcb-xfixes0-dev libxkbcommon-dev python3
 
   # Check if cargo is installed, and install it with Nix if not
   if ! command -v cargo &> /dev/null; then
